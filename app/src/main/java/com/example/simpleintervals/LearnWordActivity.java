@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class LearnWordActivity extends AppCompatActivity {
-    public static final String DATABASE_FILE_NAME = "DataBase.txt";
+    public static final String DATABASE_FILE_NAME = "DATABASE";
     public static final Integer QUANTITY_SIMULTANEOUSLY_INDEXES_IN_USE = 25;
     public static final Integer REQUIRED_QUANTITY_CORRECT_ANSWERS = 3;
     public static final Integer[] INTERVALS = {86400, 172800, 432000, 1123200, 2678400, 6739200, 16848000, 42163200, 105494400, 263692800, 659145600, 1647907200};

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -16,15 +15,14 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 
-public class SettingsActivity extends AppCompatActivity {
-    public static final String DATABASE_FILE_NAME = "DataBase.txt";
-
-    // экспорт и импорт все базы данных
-    // убрать расширение txt
+public class SettingsActivity extends AppCompatActivity  {
+    public static final String DATABASE_FILE_NAME = "DATABASE";
+    public static final String SCHEDULED_FILE_NAME = "SCHEDULED";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_settings);
 
         getSupportFragmentManager()
@@ -33,8 +31,8 @@ public class SettingsActivity extends AppCompatActivity {
                 .commit();
 
         this.setTitle("Настройки");
-
     }
+
 
     // добавление новых слов в базу данных
     // выбор файла со словами
@@ -43,7 +41,6 @@ public class SettingsActivity extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
         startActivityForResult(intent, 0);
-
     }
 
     // чтение выбраного файла
@@ -86,7 +83,7 @@ public class SettingsActivity extends AppCompatActivity {
                 fos.write(("\n").getBytes());
             }
             fos.close();
-            
+
             logAndToast("Слова успешно импортированы", false);
         } catch (Exception ex) {
             logAndToast(ex.getMessage(), true);
