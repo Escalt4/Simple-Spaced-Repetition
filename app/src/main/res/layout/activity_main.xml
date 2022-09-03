@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonLearnNew"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:onClick="onClick"
+            android:text="Изучение новых слов"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonIntervalRepetition"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="25dp"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:onClick="onClick"
+            android:text="Интервальное повторение"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonSettings"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="25dp"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:onClick="onClick"
+            android:text="Настройки"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <!--        <Button-->
+        <!--            android:id="@+id/buttonStatistics"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="70dp"-->
+        <!--            android:layout_marginBottom="25dp"-->
+        <!--            android:enabled="false"-->
+        <!--            android:insetLeft="6dp"-->
+        <!--            android:insetRight="6dp"-->
+        <!--            android:onClick="onClick"-->
+        <!--            android:text="Статистика"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textSize="16sp" />-->
+
+        <Button
+            android:id="@+id/buttonListOfPlanned"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:onClick="onClick"
+            android:text="Список запланированых для изучения слов"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
