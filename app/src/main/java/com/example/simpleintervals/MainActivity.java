@@ -67,24 +67,24 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonLearnNew:
-                Intent intentLearnNew = new Intent(this, LearnWord.class);
+                Intent intentLearnNew = new Intent(this, LearnWordActivity.class);
                 intentLearnNew.putExtra("mode", false);
                 startActivity(intentLearnNew);
                 break;
 
             case R.id.buttonIntervalRepetition:
-                Intent intentIntervalRepetition = new Intent(this, LearnWord.class);
+                Intent intentIntervalRepetition = new Intent(this, LearnWordActivity.class);
                 intentIntervalRepetition.putExtra("mode", true);
                 startActivity(intentIntervalRepetition);
                 break;
 
             case R.id.buttonSettings:
-                Intent intentSettings = new Intent(this, Settings.class);
+                Intent intentSettings = new Intent(this, SettingsActivity.class);
                 startActivity(intentSettings);
                 break;
 
             case R.id.buttonListOfPlanned:
-                Intent intentListOfPlanned = new Intent(this, ListOfPlanned.class);
+                Intent intentListOfPlanned = new Intent(this, ListOfPlannedActivity.class);
                 startActivity(intentListOfPlanned);
                 break;
 

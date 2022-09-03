@@ -1,7 +1,5 @@
 package com.example.simpleintervals;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,28 +9,30 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
 
-public class Settings extends PreferenceActivity {
+public class SettingsActivity extends AppCompatActivity {
     public static final String DATABASE_FILE_NAME = "DataBase.txt";
-
-
-
 
     // экспорт и импорт все базы данных
     // убрать расширение txt
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.settings);
-//        this.setTitle("Настройки");
+        setContentView(R.layout.activity_settings);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.settings_container, new SettingsFragment())
+                .commit();
+
+        this.setTitle("Настройки");
 
     }
 
@@ -151,23 +151,19 @@ public class Settings extends PreferenceActivity {
     // Обработка нажатий кнопок
     public void onClick(View view) {
         switch (view.getId()) {
-            // добавить новые слова из файла
-            case R.id.button_1:
-                openFile();
-                break;
-
-            // редактировать базу данных
-            case R.id.button_2:
-                break;
-
-            // очистить базу данных
-            case R.id.button_3:
-                cleanupDB();
-                break;
-
-            // обнулить прогресс
-            case R.id.button_4:
-                break;
+//            case R.id.button_1:
+//                openFile();
+//                break;
+//
+//            case R.id.button_2:
+//                break;
+//
+//            case R.id.button_3:
+//                cleanupDB();
+//                break;
+//
+//            case R.id.button_4:
+//                break;
 
             default:
                 break;

@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class EditWord extends AppCompatActivity {
+public class EditWordActivity extends AppCompatActivity {
     EditText editTextWord;
     EditText editTextKeys;
 

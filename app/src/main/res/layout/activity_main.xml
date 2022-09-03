@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="15dp"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -49,19 +49,6 @@
             android:text="Настройки"
             android:textAllCaps="false"
             android:textSize="16sp" />
-
-        <!--        <Button-->
-        <!--            android:id="@+id/buttonStatistics"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="70dp"-->
-        <!--            android:layout_marginBottom="25dp"-->
-        <!--            android:enabled="false"-->
-        <!--            android:insetLeft="6dp"-->
-        <!--            android:insetRight="6dp"-->
-        <!--            android:onClick="onClick"-->
-        <!--            android:text="Статистика"-->
-        <!--            android:textAllCaps="false"-->
-        <!--            android:textSize="16sp" />-->
 
         <Button
             android:id="@+id/buttonListOfPlanned"

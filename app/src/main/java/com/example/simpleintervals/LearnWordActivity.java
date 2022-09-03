@@ -3,11 +3,9 @@ package com.example.simpleintervals;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,13 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class LearnWord extends AppCompatActivity {
+public class LearnWordActivity extends AppCompatActivity {
     public static final String DATABASE_FILE_NAME = "DataBase.txt";
     public static final Integer QUANTITY_SIMULTANEOUSLY_INDEXES_IN_USE = 25;
     public static final Integer REQUIRED_QUANTITY_CORRECT_ANSWERS = 3;
@@ -315,7 +312,7 @@ public class LearnWord extends AppCompatActivity {
                 break;
 
             case R.id.buttonEdit:
-                Intent intentEdit = new Intent(this, EditWord.class);
+                Intent intentEdit = new Intent(this, EditWordActivity.class);
                 intentEdit.putExtra("word", database[indexesInUse.get(currentIndex)]);
                 startActivityForResult(intentEdit, 0);
                 break;
