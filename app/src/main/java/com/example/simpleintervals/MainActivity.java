@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.setTitle("Simple Intervals");
+
         ifNotExistCreateFile();
     }
 
@@ -64,27 +66,23 @@ public class MainActivity extends AppCompatActivity {
     // Обработка нажатий кнопок
     public void onClick(View view) {
         switch (view.getId()) {
-            //
             case R.id.buttonLearnNew:
                 Intent intentLearnNew = new Intent(this, LearnWord.class);
                 intentLearnNew.putExtra("mode", false);
                 startActivity(intentLearnNew);
                 break;
-            //
+
             case R.id.buttonIntervalRepetition:
                 Intent intentIntervalRepetition = new Intent(this, LearnWord.class);
                 intentIntervalRepetition.putExtra("mode", true);
                 startActivity(intentIntervalRepetition);
                 break;
-            //
+
             case R.id.buttonSettings:
-//                Intent intentSettings = new Intent(this, Settings.class);
-//                startActivity(intentSettings);
+                Intent intentSettings = new Intent(this, Settings.class);
+                startActivity(intentSettings);
                 break;
-            //
-//            case R.id.buttonStatistics:
-//                break;
-            //
+
             case R.id.buttonListOfPlanned:
                 Intent intentListOfPlanned = new Intent(this, ListOfPlanned.class);
                 startActivity(intentListOfPlanned);

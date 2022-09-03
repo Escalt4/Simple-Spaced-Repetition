@@ -27,7 +27,6 @@ public class LearnWord extends AppCompatActivity {
     public static final Integer REQUIRED_QUANTITY_CORRECT_ANSWERS = 3;
     public static final Integer[] INTERVALS = {86400, 172800, 432000, 1123200, 2678400, 6739200, 16848000, 42163200, 105494400, 263692800, 659145600, 1647907200};
 
-
     TextView textViewWord;
     TextView textViewKeys;
     TextView textViewIndicators;
@@ -49,6 +48,10 @@ public class LearnWord extends AppCompatActivity {
         setContentView(R.layout.activity_learn_word);
 
         IntervalRepetition = getIntent().getExtras().getBoolean("mode");
+
+        if (IntervalRepetition) {
+            this.setTitle("Интервальные повторения");
+        } else {this.setTitle("Изучение новых слов");}
 
         textViewWord = findViewById(R.id.textViewWord);
         textViewKeys = findViewById(R.id.textViewKeys);

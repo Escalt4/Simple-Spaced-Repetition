@@ -11,25 +11,24 @@
 
     <application
         android:allowBackup="true"
-        android:screenOrientation="portrait"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleIntervals"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
         <activity
             android:name=".ListOfPlanned"
             android:exported="false" />
         <activity
             android:name=".EditWord"
-            android:exported="false" />
-        <activity
-            android:name=".Settings"
             android:exported="false" />
         <activity
             android:name=".LearnWord"
@@ -39,7 +38,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
