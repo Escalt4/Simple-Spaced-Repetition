@@ -1,4 +1,4 @@
-package com.example.simpleintervals;
+package com.example.simplespacedrepetition;
 
 import java.io.Serializable;
 import java.util.ArrayList;

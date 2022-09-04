@@ -1,58 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="База данных">
-        <Preference
-            android:key="key1"
-            android:title="Экспортировать базу данных" />
+    <EditTextPreference
+        android:defaultValue="25"
+        android:key="key_1"
+        android:summary="Текущее: 25\nПо умолчанию: 25"
+        android:title="Количество одновременно изучаемых слов" />
 
-        <Preference
-            android:key="key2"
-            android:title="Импортировать базу данных" />
+    <EditTextPreference
+        android:defaultValue="3"
+        android:key="key_2"
+        android:summary="Текущее: 3\nПо умолчанию: 3"
+        android:title="Сколько нужно дать правильных ответов подряд" />
 
-        <Preference
-            android:key="key3"
-            android:title="Очистить базу данных" />
-
-        <Preference
-            android:key="key4"
-            android:title="Редактировать базу данных" />
-
-        <Preference
-            android:key="key5"
-            android:title="Добавить новые слова из файла" />
-
-        <Preference
-            android:key="key6"
-            android:title="Обнулить текший прогресс" />
-
-        <Preference
-            android:key="key7"
-            android:title="Поиск дубликатов слов" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="Общее">
-
-        <EditTextPreference
-            android:defaultValue="25"
-            android:key="key_1"
-            android:summary="Текущее: 25\nПо умолчанию: 25"
-            android:title="Количество одновременно изучаемых слов" />
-
-        <EditTextPreference
-            android:defaultValue="3"
-            android:key="key_2"
-            android:summary="Текущее: 3\nПо умолчанию: 3"
-            android:title="Сколько нужно дать правильных ответов подряд" />
-
-        <EditTextPreference
-            android:defaultValue="123"
-            android:key="key_3"
-            android:summary="123"
-            android:title="Интервалы повторения в днях" />
-
-    </PreferenceCategory>
-
+    <EditTextPreference
+        android:defaultValue="1 2 3"
+        android:key="key_3"
+        android:summary="1 2 3"
+        android:title="Интервалы повторения в днях" />
 
 </PreferenceScreen>

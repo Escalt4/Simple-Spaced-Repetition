@@ -1,4 +1,4 @@
-package com.example.simpleintervals;
+package com.example.simplespacedrepetition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +13,8 @@ import java.io.FileOutputStream;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String DATABASE_FILE_NAME = "DATABASE";
-    public static final String SCHEDULED_FILE_NAME = "SCHEDULED";
+    final String DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
+    final String SCHEDULED_FILE_NAME = getResources().getString(R.string.scheduled_file_name);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +72,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentLearnNew);
                 break;
 
-            case R.id.buttonIntervalRepetition:
-                Intent intentIntervalRepetition = new Intent(this, LearnWordActivity.class);
-                intentIntervalRepetition.putExtra("mode", true);
-                startActivity(intentIntervalRepetition);
+            case R.id.buttonSpacedRepetition:
+                Intent intentSpacedRepetition = new Intent(this, LearnWordActivity.class);
+                intentSpacedRepetition.putExtra("mode", true);
+                startActivity(intentSpacedRepetition);
+                break;
+
+            case R.id.buttonWorkingWithDB:
+                Intent intentWorkingWithDB = new Intent(this, WorkingWithDBActivity.class);
+                startActivity(intentWorkingWithDB);
                 break;
 
             case R.id.buttonSettings:

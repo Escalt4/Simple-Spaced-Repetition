@@ -1,4 +1,4 @@
-package com.example.simpleintervals;
+package com.example.simplespacedrepetition;
 
 
 import android.app.Activity;
@@ -19,8 +19,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class LearnWordActivity extends AppCompatActivity {
-    public static final String DATABASE_FILE_NAME = "DATABASE";
-    public static final Integer QUANTITY_SIMULTANEOUSLY_INDEXES_IN_USE = 25;
+
+    // TODO: выхожу из изучения\повторения - предупредение : количество правильных ответов будет сброшено
+
+    final String DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
+
+    public static final Integer NUMBER_OF_SIMULTANEOUSLY_STUDIED_WORDS = 25;
     public static final Integer REQUIRED_QUANTITY_CORRECT_ANSWERS = 3;
     public static final Integer[] INTERVALS = {86400, 172800, 432000, 1123200, 2678400, 6739200, 16848000, 42163200, 105494400, 263692800, 659145600, 1647907200};
 
@@ -36,7 +40,7 @@ public class LearnWordActivity extends AppCompatActivity {
     Word history;
 
     Long unixTime;
-    boolean IntervalRepetition;
+    boolean spacedRepetition;
 
 
     @Override
@@ -44,9 +48,9 @@ public class LearnWordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_word);
 
-        IntervalRepetition = getIntent().getExtras().getBoolean("mode");
+        spacedRepetition = getIntent().getExtras().getBoolean("mode");
 
-        if (IntervalRepetition) {
+        if (spacedRepetition) {
             this.setTitle("Интервальные повторения");
         } else {this.setTitle("Изучение новых слов");}
 
@@ -106,13 +110,13 @@ public class LearnWordActivity extends AppCompatActivity {
     }
 
     // много условий вынес в отдельную функцию
-    boolean smart_if(Word dbElement, boolean IntervalRepetition) {
+    boolean smart_if(Word dbElement, boolean spacedRepetition) {
         // проверка не взято ли это слово уже для изучения
         if (dbElement.getUsageNow()) {
             return false;
         }
         // в зависимости от того изучение новых слов или интервальное повторение
-        if (IntervalRepetition) {
+        if (spacedRepetition) {
             return dbElement.getLastDate() != 0 && unixTime - dbElement.getLastDate() > dbElement.getCurInterval();
         } else {
             return dbElement.getLastDate() == 0;
@@ -122,14 +126,14 @@ public class LearnWordActivity extends AppCompatActivity {
     // добавить слова в список изучаемого
     void addInIndexesInUse() {
         try {
-            if (indexesInUse.size() < QUANTITY_SIMULTANEOUSLY_INDEXES_IN_USE) {
+            if (indexesInUse.size() < NUMBER_OF_SIMULTANEOUSLY_STUDIED_WORDS) {
                 unixTime = System.currentTimeMillis() / 1000;
 
                 for (int i = 0; i < database.length; i++) {
-                    if (smart_if(database[randomIndexesDB[i]], IntervalRepetition)) {
+                    if (smart_if(database[randomIndexesDB[i]], spacedRepetition)) {
                         indexesInUse.add(randomIndexesDB[i]);
                     }
-                    if (indexesInUse.size() == QUANTITY_SIMULTANEOUSLY_INDEXES_IN_USE) {
+                    if (indexesInUse.size() == NUMBER_OF_SIMULTANEOUSLY_STUDIED_WORDS) {
                         break;
                     }
                 }

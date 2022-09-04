@@ -1,4 +1,6 @@
-package com.example.simpleintervals;
+package com.example.simplespacedrepetition;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,35 +10,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
-
-public class SettingsActivity extends AppCompatActivity  {
-    public static final String DATABASE_FILE_NAME = "DATABASE";
-    public static final String SCHEDULED_FILE_NAME = "SCHEDULED";
+public class WorkingWithDBActivity extends AppCompatActivity {
+    final String DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_working_with_db);
 
-        setContentView(R.layout.activity_settings);
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings_container, new SettingsFragment())
-                .commit();
-
-        this.setTitle("Настройки");
+        this.setTitle("Работа с базой данных");
     }
 
 
     // добавление новых слов в базу данных
     // выбор файла со словами
-    private void openFile() {
+    public void openFile() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
@@ -63,6 +55,21 @@ public class SettingsActivity extends AppCompatActivity  {
                     logAndToast(ex.getMessage(), true);
                 }
             }
+        }
+    }
+
+    public void qwe(Uri uri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+
+            byte[] buffer = new byte[inputStream.available()];
+            inputStream.read(buffer);
+            inputStream.close();
+            String text = new String(buffer);
+
+            addWordsAtDB(text);
+        } catch (Exception ex) {
+//            logAndToast(ex.getMessage(), true);
         }
     }
 
@@ -117,7 +124,7 @@ public class SettingsActivity extends AppCompatActivity  {
 //    }
 
     // очистка базы данных
-    public void cleanupDB() {
+    public void cleanDB() {
         File file_db = new File(this.getFilesDir(), DATABASE_FILE_NAME);
 
         if (file_db.length() == 0) {
@@ -144,27 +151,29 @@ public class SettingsActivity extends AppCompatActivity  {
             Log.d("SimpleIntervals", text);
         }
     }
-
     // Обработка нажатий кнопок
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.button_1:
-//                openFile();
-//                break;
-//
-//            case R.id.button_2:
-//                break;
-//
-//            case R.id.button_3:
-//                cleanupDB();
-//                break;
-//
-//            case R.id.button_4:
-//                break;
+            case R.id.buttonExportDB:
+                break;
+
+            case R.id.buttonImportDB:
+                break;
+
+            case R.id.buttonCleanupDB:
+                cleanDB();
+                break;
+
+            case R.id.buttonEditDB:
+                break;
+
+            case R.id.buttonAddWords:
+                openFile();
+                break;
 
             default:
                 break;
         }
     }
-
 }
+

@@ -1,4 +1,4 @@
-package com.example.simpleintervals;
+package com.example.simplespacedrepetition;
 
 import androidx.appcompat.app.AppCompatActivity;
 

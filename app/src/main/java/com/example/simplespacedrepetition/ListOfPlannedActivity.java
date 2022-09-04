@@ -1,4 +1,4 @@
-package com.example.simpleintervals;
+package com.example.simplespacedrepetition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class ListOfPlannedActivity extends AppCompatActivity {
+    final String SCHEDULED_FILE_NAME = getResources().getString(R.string.scheduled_file_name);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

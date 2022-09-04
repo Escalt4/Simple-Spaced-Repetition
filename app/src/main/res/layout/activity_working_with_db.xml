@@ -5,70 +5,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context=".MainActivity">
+    tools:context=".WorkingWithDBActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom"
+        android:gravity="top"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/buttonLearnNew"
+            android:id="@+id/buttonExportDB"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:enabled="false"
             android:insetLeft="6dp"
             android:insetRight="6dp"
             android:onClick="onClick"
-            android:text="Изучение новых слов"
+            android:text="Экспортировать базу данных"
             android:textAllCaps="false"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/buttonSpacedRepetition"
+            android:id="@+id/buttonImportDB"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:enabled="false"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:onClick="onClick"
+            android:text="Импортировать базу данных"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonCleanupDB"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:onClick="onClick"
+            android:text="Очистить базу данных"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonEditDB"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginBottom="25dp"
+            android:enabled="false"
             android:insetLeft="6dp"
             android:insetRight="6dp"
             android:onClick="onClick"
-            android:text="Интервальное повторение"
+            android:text="Редактировать базу данных"
             android:textAllCaps="false"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/buttonSettings"
+            android:id="@+id/buttonAddWords"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:insetLeft="6dp"
             android:insetRight="6dp"
             android:onClick="onClick"
-            android:text="Настройки приложения"
+            android:text="Добавить новые слова из файла"
             android:textAllCaps="false"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/buttonWorkingWithDB"
+            android:id="@+id/buttonResetProgress"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginBottom="25dp"
             android:insetLeft="6dp"
+            android:enabled="false"
             android:insetRight="6dp"
             android:onClick="onClick"
-            android:text="Работа с базой данных"
+            android:text="Обнулить текший прогресс"
             android:textAllCaps="false"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/buttonListOfPlanned"
+            android:id="@+id/buttonSearchDuplicates"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:insetLeft="6dp"
+            android:enabled="false"
             android:insetRight="6dp"
             android:onClick="onClick"
-            android:text="Список запланированых для изучения слов"
+            android:text="Поиск дубликатов слов"
             android:textAllCaps="false"
             android:textSize="16sp" />
 
