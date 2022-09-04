@@ -13,8 +13,8 @@ import java.io.FileOutputStream;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    final String DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
-    final String SCHEDULED_FILE_NAME = getResources().getString(R.string.scheduled_file_name);
+    String DATABASE_FILE_NAME;
+    String SCHEDULED_FILE_NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.setTitle("Simple Intervals");
+
+        DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
+        SCHEDULED_FILE_NAME = getResources().getString(R.string.scheduled_file_name);
 
         ifNotExistCreateFile();
     }

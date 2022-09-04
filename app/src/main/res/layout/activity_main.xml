@@ -34,7 +34,7 @@
             android:insetLeft="6dp"
             android:insetRight="6dp"
             android:onClick="onClick"
-            android:text="Интервальное повторение"
+            android:text="Интервальные повторения"
             android:textAllCaps="false"
             android:textSize="16sp" />
 
@@ -45,6 +45,7 @@
             android:insetLeft="6dp"
             android:insetRight="6dp"
             android:onClick="onClick"
+            android:textColor="#FF0000"
             android:text="Настройки приложения"
             android:textAllCaps="false"
             android:textSize="16sp" />
@@ -69,6 +70,7 @@
             android:insetRight="6dp"
             android:onClick="onClick"
             android:text="Список запланированых для изучения слов"
+            android:textColor="#FF0000"
             android:textAllCaps="false"
             android:textSize="16sp" />
 

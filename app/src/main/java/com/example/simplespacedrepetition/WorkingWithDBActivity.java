@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 public class WorkingWithDBActivity extends AppCompatActivity {
-    final String DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
+    String DATABASE_FILE_NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ public class WorkingWithDBActivity extends AppCompatActivity {
         setContentView(R.layout.activity_working_with_db);
 
         this.setTitle("Работа с базой данных");
+
+        DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
     }
 
 
@@ -58,21 +60,6 @@ public class WorkingWithDBActivity extends AppCompatActivity {
         }
     }
 
-    public void qwe(Uri uri) {
-        try {
-            InputStream inputStream = getContentResolver().openInputStream(uri);
-
-            byte[] buffer = new byte[inputStream.available()];
-            inputStream.read(buffer);
-            inputStream.close();
-            String text = new String(buffer);
-
-            addWordsAtDB(text);
-        } catch (Exception ex) {
-//            logAndToast(ex.getMessage(), true);
-        }
-    }
-
     // добавление в базу данных полученых из файла слов
     public void addWordsAtDB(String text) {
         try {
@@ -80,10 +67,17 @@ public class WorkingWithDBActivity extends AppCompatActivity {
 
             String[] strings = text.split("\n");
 
-            for (int i = 0; i < strings.length; i++) {
+            if (!strings[0].contains("IT_IS_VALID_FILE")) {
+                logAndToast("Это не файл со словами или", true);
+                logAndToast("в начале файла нет строки IT_IS_VALID_FILE", true);
+                return;
+            }
+
+            for (int i = 1; i < strings.length; i++) {
                 String[] string = strings[i].split(";");
+
                 // формат бд: слово;дата последнего изменения интервала;длина текущего интервала;значение слова
-                fos.write((string[0] + ";0;0;").getBytes());
+                fos.write((string[0].replace("\n", "").replace("\r", "") + ";0;0;").getBytes());
                 for (int j = 1; j < string.length; j++) {
                     fos.write((string[j].replace("\n", "").replace("\r", "") + ";").getBytes());
                 }
@@ -151,6 +145,7 @@ public class WorkingWithDBActivity extends AppCompatActivity {
             Log.d("SimpleIntervals", text);
         }
     }
+
     // Обработка нажатий кнопок
     public void onClick(View view) {
         switch (view.getId()) {

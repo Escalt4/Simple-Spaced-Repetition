@@ -22,7 +22,7 @@ public class LearnWordActivity extends AppCompatActivity {
 
     // TODO: выхожу из изучения\повторения - предупредение : количество правильных ответов будет сброшено
 
-    final String DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
+    String DATABASE_FILE_NAME;
 
     public static final Integer NUMBER_OF_SIMULTANEOUSLY_STUDIED_WORDS = 25;
     public static final Integer REQUIRED_QUANTITY_CORRECT_ANSWERS = 3;
@@ -52,21 +52,26 @@ public class LearnWordActivity extends AppCompatActivity {
 
         if (spacedRepetition) {
             this.setTitle("Интервальные повторения");
-        } else {this.setTitle("Изучение новых слов");}
+        } else {
+            this.setTitle("Изучение новых слов");
+        }
+
+        DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
 
         textViewWord = findViewById(R.id.textViewWord);
         textViewKeys = findViewById(R.id.textViewKeys);
         textViewIndicators = findViewById(R.id.textViewIndicators);
 
-        importFromDB();
-        shuffleIndex();
-        addInIndexesInUse();
-        displayNextWord();
+        if (importFromDB()) {
+            shuffleIndex();
+            addInIndexesInUse();
+            displayNextWord();
+        }
     }
 
 
     // импорт слов из базы данных
-    void importFromDB() {
+    boolean importFromDB() {
         try {
             FileInputStream fileInputStream = openFileInput(DATABASE_FILE_NAME);
             byte[] bytes = new byte[fileInputStream.available()];
@@ -74,6 +79,11 @@ public class LearnWordActivity extends AppCompatActivity {
             fileInputStream.close();
 
             String text = new String(bytes);
+
+            if (text.equals("")) {
+                logAndToast("База данных пуста", true);
+                return false;
+            }
 
             String[] strings = text.split("\n");
 
@@ -87,8 +97,10 @@ public class LearnWordActivity extends AppCompatActivity {
                         Integer.parseInt(string[2]),
                         Arrays.copyOfRange(string, 3, string.length));
             }
+            return true;
         } catch (Exception ex) {
             logAndToast(ex.getMessage(), true);
+            return false;
         }
     }
 
@@ -139,7 +151,7 @@ public class LearnWordActivity extends AppCompatActivity {
                 }
 
                 if (indexesInUse.size() == 0) {
-                    logAndToast("Нет слов для изучения", true);
+                    logAndToast("В базе данных нет слов для изучения", true);
                 }
             }
         } catch (Exception ex) {
