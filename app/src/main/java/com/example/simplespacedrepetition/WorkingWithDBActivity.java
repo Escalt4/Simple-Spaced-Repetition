@@ -15,6 +15,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 public class WorkingWithDBActivity extends AppCompatActivity {
+
+    // TODO: подтверждение очистки бд / обнуления прогресса
+
     String DATABASE_FILE_NAME;
 
     @Override
