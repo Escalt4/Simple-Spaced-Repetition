@@ -38,42 +38,66 @@
             android:textAllCaps="false"
             android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/buttonSettings"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:insetLeft="6dp"
-            android:insetRight="6dp"
-            android:onClick="onClick"
-            android:textColor="#FF0000"
-            android:text="Настройки приложения"
-            android:textAllCaps="false"
-            android:textSize="16sp" />
+        <!--        <Button-->
+        <!--            android:id="@+id/buttonListOfPlanned"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="70dp"-->
+        <!--            android:layout_marginBottom="25dp"-->
+        <!--            android:enabled="false"-->
+        <!--            android:insetLeft="6dp"-->
+        <!--            android:insetRight="6dp"-->
+        <!--            android:onClick="onClick"-->
+        <!--            android:text="Список запланированых для изучения слов"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textSize="16sp" />-->
 
-        <Button
-            android:id="@+id/buttonWorkingWithDB"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginBottom="25dp"
-            android:insetLeft="6dp"
-            android:insetRight="6dp"
-            android:onClick="onClick"
-            android:text="Работа с базой данных"
-            android:textAllCaps="false"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/buttonListOfPlanned"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:insetLeft="6dp"
-            android:insetRight="6dp"
-            android:onClick="onClick"
-            android:text="Список запланированых для изучения слов"
-            android:textColor="#FF0000"
-            android:textAllCaps="false"
-            android:textSize="16sp" />
+            <ImageButton
+                android:id="@+id/buttonHelp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="15dp"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
+                android:onClick="onClick"
+                android:paddingHorizontal="15dp"
+                android:src="@drawable/ic_help">
 
+            </ImageButton>
+
+            <ImageButton
+                android:id="@+id/buttonSettings"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="15dp"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
+                android:onClick="onClick"
+                android:paddingHorizontal="15dp"
+                android:src="@drawable/ic_settings">
+
+            </ImageButton>
+
+            <ImageButton
+                android:id="@+id/buttonWorkingWithDB"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="15dp"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
+                android:onClick="onClick"
+                android:padding="15dp"
+                android:src="@drawable/ic_editdb">
+
+            </ImageButton>
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.setTitle("Simple Intervals");
+        this.setTitle(getResources().getString(R.string.app_name));
 
         DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
         SCHEDULED_FILE_NAME = getResources().getString(R.string.scheduled_file_name);
@@ -91,9 +91,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentSettings);
                 break;
 
-            case R.id.buttonListOfPlanned:
-                Intent intentListOfPlanned = new Intent(this, ListOfPlannedActivity.class);
-                startActivity(intentListOfPlanned);
+//            case R.id.buttonListOfPlanned:
+//                Intent intentListOfPlanned = new Intent(this, ListOfPlannedActivity.class);
+//                startActivity(intentListOfPlanned);
+//                break;
+
+            case R.id.buttonHelp:
+                Intent intentHelp = new Intent(this, HelpActivity.class);
+                startActivity(intentHelp);
                 break;
 
             default:

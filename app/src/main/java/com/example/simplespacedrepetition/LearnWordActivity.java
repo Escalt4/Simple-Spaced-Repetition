@@ -24,7 +24,7 @@ public class LearnWordActivity extends AppCompatActivity {
 
     String DATABASE_FILE_NAME;
 
-    public static final Integer NUMBER_OF_SIMULTANEOUSLY_STUDIED_WORDS = 25;
+    public static final Integer NUMBER_OF_SIMULTANEOUSLY_STUDIED_WORDS = 50;
     public static final Integer REQUIRED_QUANTITY_CORRECT_ANSWERS = 3;
     public static final Integer[] INTERVALS = {86400, 172800, 432000, 1123200, 2678400, 6739200, 16848000, 42163200, 105494400, 263692800, 659145600, 1647907200};
 
@@ -151,7 +151,12 @@ public class LearnWordActivity extends AppCompatActivity {
                 }
 
                 if (indexesInUse.size() == 0) {
-                    logAndToast("В базе данных нет слов для изучения", true);
+                    if (spacedRepetition) {
+                        logAndToast("В базе данных нет слов для повторения", true);
+                    } else {
+                        logAndToast("В базе данных нет слов для изучения", true);
+                    }
+
                 }
             }
         } catch (Exception ex) {
