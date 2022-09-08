@@ -20,7 +20,8 @@ import java.util.List;
 
 public class LearnWordActivity extends AppCompatActivity {
 
-    // TODO: выхожу из изучения\повторения - предупредение : количество правильных ответов будет сброшено
+//     стоит ли сбрасывать прогресс если если просто выход из повторения\изучения слов
+//     TODO: выхожу из изучения\повторения - предупредение : количество правильных ответов будет сброшено
 
     String DATABASE_FILE_NAME;
 
@@ -113,9 +114,9 @@ public class LearnWordActivity extends AppCompatActivity {
                 randomIndexesDB[i] = i;
             }
 
-            List intList = Arrays.asList(randomIndexesDB);
-            Collections.shuffle(intList);
-            intList.toArray(randomIndexesDB);
+//            List intList = Arrays.asList(randomIndexesDB);
+//            Collections.shuffle(intList);
+//            intList.toArray(randomIndexesDB);
         } catch (Exception ex) {
             logAndToast(ex.getMessage(), true);
         }

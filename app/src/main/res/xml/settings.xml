@@ -2,21 +2,27 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditTextPreference
-        android:defaultValue="25"
-        android:key="key_1"
-        android:summary="Текущее: 25\nПо умолчанию: 25"
-        android:title="Количество одновременно изучаемых слов" />
+        android:defaultValue="123"
+        android:key="123"
+        android:summary="123"
+        android:title="123" />
 
-    <EditTextPreference
-        android:defaultValue="3"
-        android:key="key_2"
-        android:summary="Текущее: 3\nПо умолчанию: 3"
-        android:title="Сколько нужно дать правильных ответов подряд" />
+    <!--    <EditTextPreference-->
+    <!--        android:defaultValue="25"-->
+    <!--        android:key="key_1"-->
+    <!--        android:summary="Текущее: 25\nПо умолчанию: 25"-->
+    <!--        android:title="Количество одновременно изучаемых слов" />-->
 
-    <EditTextPreference
-        android:defaultValue="1 2 3"
-        android:key="key_3"
-        android:summary="1 2 3"
-        android:title="Интервалы повторения в днях" />
+    <!--    <EditTextPreference-->
+    <!--        android:defaultValue="3"-->
+    <!--        android:key="key_2"-->
+    <!--        android:summary="Текущее: 3\nПо умолчанию: 3"-->
+    <!--        android:title="Сколько нужно дать правильных ответов подряд" />-->
+
+    <!--    <EditTextPreference-->
+    <!--        android:defaultValue="1 2 3"-->
+    <!--        android:key="key_3"-->
+    <!--        android:summary="1 2 3"-->
+    <!--        android:title="Интервалы повторения в днях" />-->
 
 </PreferenceScreen>

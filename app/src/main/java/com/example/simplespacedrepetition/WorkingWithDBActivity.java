@@ -30,43 +30,56 @@ public class WorkingWithDBActivity extends AppCompatActivity {
         DATABASE_FILE_NAME = getResources().getString(R.string.database_file_name);
     }
 
-
-    // добавление новых слов в базу данных
-    // выбор файла со словами
-    public void openFile() {
+    // запрос на открытие файла
+    public void openFile(int requestCode) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        startActivityForResult(intent, 0);
+        startActivityForResult(intent, requestCode);
     }
 
-    // чтение выбраного файла
+    // запрос на сохранение файла
+//    public void saveFile(int requestCode) {
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+//        intent.setType("*/*");
+//        startActivityForResult(intent, requestCode);
+//    }
+
+    // получение результата
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent resultData) {
         super.onActivityResult(requestCode, resultCode, resultData);
-        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
-            if (resultData != null) {
-                Uri uri = resultData.getData();
-                try {
-                    InputStream inputStream = getContentResolver().openInputStream(uri);
 
-                    byte[] buffer = new byte[inputStream.available()];
-                    inputStream.read(buffer);
-                    inputStream.close();
-                    String text = new String(buffer);
+        if (resultData != null && resultCode == Activity.RESULT_OK) {
+            Uri uri = resultData.getData();
 
-                    addWordsAtDB(text);
-                } catch (Exception ex) {
-                    logAndToast(ex.getMessage(), true);
-                }
+            switch (requestCode) {
+                case 0:
+                    addWordsAtDB(uri);
+                    return;
+
+                case 1:
+                    importDB(uri);
+                    return;
+
+                default:
+                    return;
             }
         }
     }
 
-    // добавление в базу данных полученых из файла слов
-    public void addWordsAtDB(String text) {
+    // получение из файла слов и добавление их в базу данных
+    public void addWordsAtDB(Uri uri) {
         try {
             FileOutputStream fos = openFileOutput(DATABASE_FILE_NAME, MODE_APPEND);
+
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+
+            byte[] buffer = new byte[inputStream.available()];
+            inputStream.read(buffer);
+            inputStream.close();
+            String text = new String(buffer);
 
             String[] strings = text.split("\n");
 
@@ -94,6 +107,14 @@ public class WorkingWithDBActivity extends AppCompatActivity {
         }
     }
 
+    // импорт файла базы данных
+    public void importDB(Uri uri) {
+        return;
+    }
+
+    // экспорт файла базы данных
+    public void exportDB() {
+    }
 
 //    // это для функции редактирования бд
 //    // вывод содержания базы данных на экран
@@ -153,9 +174,11 @@ public class WorkingWithDBActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonExportDB:
+//                saveFile(3);
                 break;
 
             case R.id.buttonImportDB:
+                openFile(1);
                 break;
 
             case R.id.buttonCleanupDB:
@@ -166,7 +189,7 @@ public class WorkingWithDBActivity extends AppCompatActivity {
                 break;
 
             case R.id.buttonAddWords:
-                openFile();
+                openFile(0);
                 break;
 
             default:

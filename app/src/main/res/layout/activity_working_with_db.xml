@@ -14,20 +14,6 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/buttonExportDB"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:enabled="false"
-            android:insetLeft="6dp"
-            android:insetRight="6dp"
-            android:onClick="onClick"
-            android:text="Экспортировать базу данных"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
             android:id="@+id/buttonImportDB"
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -38,6 +24,18 @@
             android:text="Импортировать базу данных"
             android:textAllCaps="false"
             android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonExportDB"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:enabled="false"
+            android:insetLeft="6dp"
+            android:insetRight="6dp"
+            android:onClick="onClick"
+            android:text="Экспортировать базу данных"
+            android:textAllCaps="false"
+            android:textSize="16sp"/>
 
         <Button
             android:id="@+id/buttonCleanupDB"

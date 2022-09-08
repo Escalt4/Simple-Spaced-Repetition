@@ -14,16 +14,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textColor="?android:attr/textColorPrimary"
                 android:text="Изучение новых слов / Интервальные повторения"
-                android:textSize="24sp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -33,30 +33,145 @@
                 android:text="        1. Попытайтесь вспомнить перевод слова\n        2. Посмотрите правильный ответ нажав кнопу 'Показать ответ'\n        3. Кнопками 'Верно'/'Не верно' отметьте верно ли вы ответили\n        *Неверный ответ сбрасывает прогресс изучения слова"
                 android:textSize="16sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_help"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="Описание приложения и работы с ним"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Текущая страница"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_settings"
                 android:gravity="center"
-                android:textColor="?android:attr/textColorPrimary"
                 android:padding="15dp"
                 android:text="Настройки приложения"
-                android:textSize="24sp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?android:attr/textColorPrimary"
+                android:gravity="top"
+                android:text="        Тут я потом добавлю описание"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_editdb"
                 android:gravity="center"
                 android:padding="15dp"
                 android:text="Работа с базой данных"
-                android:textSize="24sp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Импортировать / Экспортировать базу данных"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Импорт / экспорт файла базы данных\n        Формат бд: слово;дата_последнего_изменения_интервала;длина_текущего_интервала;значения_слова_через_точку_с_запятой"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Очистить базу данных"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Удаление всего из базы данных"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Редактировать базу данных"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Редактор базы данных, будет добавлено в следующих обновлениях"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Добавить новые слова из файла"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Добавить слова и их перевод из файла\n        Формат файла со словами первая строка: IT_IS_VALID_FILE\n        Формат файла со словами остальные строки: слово;значения_слова_через_точку_с_запятой"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Обнулить текший прогресс"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Удалить текуший прогресс в изучении слов"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Поиск дубликатов слов"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="        Поиск и обьединение одинаковых слов, будет добавлено в следующих обновлениях"
+                android:textSize="16sp" />
+
         </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         ifNotExistCreateFile();
     }
 
-    // если не существует то создание пустого файла базы данных и запланированых слов
+    // если не существует то создание пустого файла базы данных и файла запланированых слов
     public void ifNotExistCreateFile() {
         File fileDataBase = new File(this.getFilesDir(), DATABASE_FILE_NAME);
         if (!fileDataBase.exists()) {
